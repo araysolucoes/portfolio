@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Aray Soluções — desenvolvimento de sistemas, automações e soluções digitais sob medida para empresas que buscam produtividade e crescimento.">
+  <meta name="keywords" content="desenvolvimento de sistemas, automação, integrações, APIs, software sob medida, Aray Soluções">
+  <meta name="author" content="Aray Soluções">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Aray Soluções — Transformamos processos em software">
+  <meta property="og:description" content="Desenvolvimento de sistemas, automações e soluções digitais sob medida para empresas que buscam produtividade e crescimento.">
+  <meta property="og:image" content="./static/imgs/logo-aray.jpeg">
+  <meta property="og:site_name" content="Aray Soluções">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Aray Soluções — Transformamos processos em software">
+  <meta name="twitter:description" content="Desenvolvimento de sistemas, automações e soluções digitais sob medida.">
+  <meta name="twitter:image" content="./static/imgs/logo-aray.jpeg">
+
+  <title>Aray Soluções — Desenvolvimento de Sistemas e Automação</title>
+  <link rel="icon" href="./favicon.ico" sizes="any">
+  <link rel="shortcut icon" href="./favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/styles.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Aray Soluções",
+    "description": "Desenvolvimento de Sistemas, Automação e Soluções Digitais.",
+    "email": "aray.solucoes@gmail.com",
+    "url": "https://github.com/araysolucoes",
+    "sameAs": [
+      "https://www.instagram.com/araysolucoes",
+      "https://github.com/araysolucoes"
+    ],
+    "founder": {
+      "@type": "Person",
+      "name": "Leonardo Longaray dos Santos",
+      "jobTitle": "Fundador",
+      "image": "./static/imgs/foto-perfil.jpeg"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Leonardo Longaray dos Santos",
+    "jobTitle": "Fundador",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Aray Soluções"
+    },
+    "image": "./static/imgs/foto-perfil.jpeg"
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#hero">Ir para o conteúdo</a>
+
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#hero" class="header__logo" aria-label="Aray Soluções — início">
+        <img src="./static/imgs/logo-marca_fundo-transparente.png" alt="Aray Soluções" width="160" height="48" decoding="async">
+      </a>
+
+      <button type="button" class="header__toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navMenu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="header__nav" id="navMenu" aria-label="Navegação principal">
+        <ul class="header__links">
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#tecnologias">Tecnologias</a></li>
+          <li><a href="#diferenciais">Diferenciais</a></li>
+          <li><a href="#portfolio">Portfólio</a></li>
+          <li><a href="#contato">Contato</a></li>
+          <li><a href="#fundador">Fundador</a></li>
+        </ul>
+        <a href="#contato" class="btn btn--primary btn--sm header__cta">Orçamento</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero section" id="hero">
+      <canvas class="hero__particles" id="heroParticles" aria-hidden="true"></canvas>
+      <div class="hero__grid" aria-hidden="true"></div>
+      <div class="hero__glow hero__glow--1" aria-hidden="true"></div>
+      <div class="hero__glow hero__glow--2" aria-hidden="true"></div>
+
+      <div class="container hero__inner">
+        <div class="hero__content reveal">
+          <p class="hero__eyebrow">Software house · Soluções digitais</p>
+          <h1 class="hero__title">Transformamos processos em software.</h1>
+          <p class="hero__subtitle">Desenvolvimento de sistemas, automações e soluções digitais sob medida para empresas que buscam produtividade, eficiência e crescimento.</p>
+          <div class="hero__actions">
+            <a href="#contato" class="btn btn--primary">Solicitar orçamento</a>
+            <a href="https://wa.me/5551994841638?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Aray%20Solu%C3%A7%C3%B5es%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto." class="btn btn--outline btn--whatsapp" target="_blank" rel="noopener noreferrer">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.881 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Falar no WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <div class="hero__visual reveal reveal--delay" aria-hidden="true">
+          <div class="hero-dashboard">
+            <div class="hero-dashboard__header">
+              <span class="hero-dashboard__dot"></span>
+              <span class="hero-dashboard__dot"></span>
+              <span class="hero-dashboard__dot"></span>
+              <span class="hero-dashboard__title">aray.dev</span>
+            </div>
+            <div class="hero-dashboard__body">
+              <div class="hero-dashboard__sidebar">
+                <div class="hero-dashboard__nav-item hero-dashboard__nav-item--active"></div>
+                <div class="hero-dashboard__nav-item"></div>
+                <div class="hero-dashboard__nav-item"></div>
+                <div class="hero-dashboard__nav-item"></div>
+              </div>
+              <div class="hero-dashboard__main">
+                <div class="hero-dashboard__chart">
+                  <div class="hero-dashboard__bar" style="--h: 60%"></div>
+                  <div class="hero-dashboard__bar" style="--h: 85%"></div>
+                  <div class="hero-dashboard__bar" style="--h: 45%"></div>
+                  <div class="hero-dashboard__bar" style="--h: 70%"></div>
+                  <div class="hero-dashboard__bar" style="--h: 95%"></div>
+                </div>
+                <div class="hero-dashboard__nodes">
+                  <div class="hero-dashboard__node">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                  </div>
+                  <div class="hero-dashboard__line"></div>
+                  <div class="hero-dashboard__node hero-dashboard__node--accent">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                  </div>
+                  <div class="hero-dashboard__line"></div>
+                  <div class="hero-dashboard__node">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+                  </div>
+                </div>
+                <div class="hero-dashboard__code">
+                  <span class="hero-dashboard__code-line"><span class="c-keyword">const</span> solucao = <span class="c-fn">integrar</span>(sistemas);</span>
+                  <span class="hero-dashboard__code-line"><span class="c-fn">automatizar</span>(processos);</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="hero__logo-card">
+            <img src="./static/imgs/logo-aray.jpeg" alt="" width="120" height="120" loading="eager" decoding="async">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sobre -->
+    <section class="section section--alt" id="sobre">
+      <div class="container sobre__inner">
+        <div class="sobre__content reveal">
+          <h2 class="section__title">Sobre a Aray Soluções</h2>
+          <div class="section__text">
+            <p>A Aray Soluções nasceu com o propósito de transformar desafios empresariais em soluções tecnológicas eficientes.</p>
+            <p>Atuamos no desenvolvimento de sistemas personalizados, automações, integrações e soluções digitais que ajudam empresas a reduzir processos manuais, aumentar produtividade e ganhar mais controle sobre suas operações.</p>
+            <p>Nosso compromisso é entregar tecnologia moderna, escalável e alinhada às necessidades reais de cada cliente.</p>
+          </div>
+        </div>
+        <div class="sobre__visual reveal reveal--delay" aria-hidden="true">
+          <div class="pipeline">
+            <div class="pipeline__step">
+              <div class="pipeline__icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              </div>
+              <span>Análise</span>
+            </div>
+            <div class="pipeline__connector"></div>
+            <div class="pipeline__step">
+              <div class="pipeline__icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+              </div>
+              <span>Desenvolvimento</span>
+            </div>
+            <div class="pipeline__connector"></div>
+            <div class="pipeline__step">
+              <div class="pipeline__icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+              </div>
+              <span>Entrega</span>
+            </div>
+            <div class="pipeline__stats">
+              <div class="pipeline__stat">
+                <strong>100%</strong>
+                <span>Sob medida</span>
+              </div>
+              <div class="pipeline__stat">
+                <strong>24/7</strong>
+                <span>Escalável</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Serviços -->
+    <section class="section" id="servicos">
+      <div class="container">
+        <div class="section__header reveal">
+          <h2 class="section__title">O que fazemos</h2>
+          <p class="section__lead">Soluções digitais completas para impulsionar a operação do seu negócio.</p>
+        </div>
+        <div class="grid grid--services">
+          <article class="card reveal">
+            <div class="card__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M7 8h4M7 12h10"/></svg>
+            </div>
+            <h3 class="card__title">Desenvolvimento de Sistemas</h3>
+            <p class="card__text">Sistemas personalizados para gestão, controle e automação de processos.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+            </div>
+            <h3 class="card__title">Sites e Landing Pages</h3>
+            <p class="card__text">Presença digital profissional para empresas e negócios.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            </div>
+            <h3 class="card__title">Automação de Processos</h3>
+            <p class="card__text">Redução de tarefas repetitivas através de automações inteligentes.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+            </div>
+            <h3 class="card__title">Integrações</h3>
+            <p class="card__text">Conectamos sistemas e plataformas para otimizar fluxos de trabalho.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 7h16M4 12h16M4 17h10"/><path d="M17 17l3 3-3 3"/></svg>
+            </div>
+            <h3 class="card__title">APIs e Sistemas Web</h3>
+            <p class="card__text">Desenvolvimento de soluções modernas baseadas em APIs e aplicações web.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20h9M16.5 3.5a2.12 2.12 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+            </div>
+            <h3 class="card__title">Consultoria Tecnológica</h3>
+            <p class="card__text">Análise e planejamento para evolução tecnológica de empresas.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tecnologias -->
+    <section class="section section--alt" id="tecnologias">
+      <div class="container">
+        <div class="section__header reveal">
+          <h2 class="section__title">Tecnologias que utilizamos</h2>
+        </div>
+        <div class="badges reveal">
+          <span class="badge">HTML5</span>
+          <span class="badge">CSS3</span>
+          <span class="badge">JavaScript</span>
+          <span class="badge">TypeScript</span>
+          <span class="badge">PHP</span>
+          <span class="badge">Python</span>
+          <span class="badge">MySQL</span>
+          <span class="badge">PostgreSQL</span>
+          <span class="badge">Node.js</span>
+          <span class="badge">Git</span>
+          <span class="badge">GitHub</span>
+          <span class="badge">REST APIs</span>
+          <span class="badge">Linux</span>
+          <span class="badge">Docker</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Diferenciais -->
+    <section class="section" id="diferenciais">
+      <div class="container">
+        <div class="section__header reveal">
+          <h2 class="section__title">Por que escolher a Aray Soluções?</h2>
+        </div>
+        <div class="grid grid--diff">
+          <article class="card card--compact reveal">
+            <div class="card__icon card__icon--sm">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <h3 class="card__title">Atendimento personalizado</h3>
+          </article>
+          <article class="card card--compact reveal">
+            <div class="card__icon card__icon--sm">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <h3 class="card__title">Soluções sob medida</h3>
+          </article>
+          <article class="card card--compact reveal">
+            <div class="card__icon card__icon--sm">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <h3 class="card__title">Desenvolvimento moderno</h3>
+          </article>
+          <article class="card card--compact reveal">
+            <div class="card__icon card__icon--sm">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            </div>
+            <h3 class="card__title">Foco em performance</h3>
+          </article>
+          <article class="card card--compact reveal">
+            <div class="card__icon card__icon--sm">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+            </div>
+            <h3 class="card__title">Suporte próximo</h3>
+          </article>
+          <article class="card card--compact reveal">
+            <div class="card__icon card__icon--sm">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+            </div>
+            <h3 class="card__title">Tecnologia escalável</h3>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfólio -->
+    <section class="section section--alt" id="portfolio">
+      <div class="container">
+        <div class="section__header reveal">
+          <h2 class="section__title">Projetos e Portfólio</h2>
+          <p class="section__lead section__lead--narrow">Estamos construindo um portfólio sólido e desenvolvendo soluções inovadoras para empresas que buscam evoluir através da tecnologia.<br>Novos projetos, demonstrações e estudos de caso serão adicionados em breve.</p>
+        </div>
+        <div class="grid grid--portfolio">
+          <article class="project-card reveal">
+            <div class="project-card__preview project-card__preview--1">
+              <div class="project-card__ui">
+                <div class="project-card__bar"></div>
+                <div class="project-card__rows">
+                  <span></span><span></span><span></span>
+                </div>
+              </div>
+            </div>
+            <div class="project-card__body">
+              <span class="project-card__tag">Demonstração</span>
+              <h3 class="project-card__title">Sistema de Gestão Empresarial</h3>
+              <p class="project-card__text">Painel centralizado para controle de operações, equipes e indicadores.</p>
+            </div>
+          </article>
+          <article class="project-card reveal">
+            <div class="project-card__preview project-card__preview--2">
+              <div class="project-card__ui">
+                <div class="project-card__chat">
+                  <span></span><span></span>
+                </div>
+              </div>
+            </div>
+            <div class="project-card__body">
+              <span class="project-card__tag">Demonstração</span>
+              <h3 class="project-card__title">Plataforma de Atendimento</h3>
+              <p class="project-card__text">Interface moderna para gestão de conversas e suporte ao cliente.</p>
+            </div>
+          </article>
+          <article class="project-card reveal">
+            <div class="project-card__preview project-card__preview--3">
+              <div class="project-card__ui">
+                <div class="project-card__chart-mini">
+                  <span style="--h: 40%"></span>
+                  <span style="--h: 70%"></span>
+                  <span style="--h: 55%"></span>
+                  <span style="--h: 90%"></span>
+                </div>
+              </div>
+            </div>
+            <div class="project-card__body">
+              <span class="project-card__tag">Demonstração</span>
+              <h3 class="project-card__title">Dashboard de Indicadores</h3>
+              <p class="project-card__text">Visualização em tempo real de métricas e KPIs estratégicos.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section cta-section" id="cta">
+      <div class="container">
+        <div class="cta-box reveal">
+          <div class="cta-box__glow" aria-hidden="true"></div>
+          <h2 class="cta-box__title">Pronto para transformar sua ideia em solução?</h2>
+          <p class="cta-box__text">Entre em contato e descubra como a tecnologia pode impulsionar seu negócio.</p>
+          <div class="cta-box__actions">
+            <a href="#contato" class="btn btn--primary">Solicitar orçamento</a>
+            <a href="https://wa.me/5551994841638?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Aray%20Solu%C3%A7%C3%B5es%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto." class="btn btn--outline btn--whatsapp" target="_blank" rel="noopener noreferrer">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.881 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Conversar no WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contato -->
+    <section class="section section--alt" id="contato">
+      <div class="container contato__inner">
+        <div class="contato__info reveal">
+          <h2 class="section__title">Entre em contato</h2>
+          <p class="section__lead">Estamos prontos para entender seu projeto e propor a melhor solução tecnológica.</p>
+          <ul class="contato__channels">
+            <li>
+              <a href="https://www.instagram.com/araysolucoes" target="_blank" rel="noopener noreferrer" class="contato__link">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                <span><strong>Instagram</strong> @araysolucoes</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/araysolucoes" target="_blank" rel="noopener noreferrer" class="contato__link">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.36-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A8.34 8.34 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                <span><strong>GitHub</strong> github.com/araysolucoes</span>
+              </a>
+            </li>
+            <li>
+              <a href="mailto:aray.solucoes@gmail.com" class="contato__link">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                <span><strong>E-mail</strong> aray.solucoes@gmail.com</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <form class="form reveal reveal--delay" id="contactForm" action="https://formsubmit.co/aray.solucoes@gmail.com" method="POST" novalidate>
+          <input type="hidden" name="_subject" id="formSubject" value="Novo contato — Site Aray Soluções">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_next" id="formNext" value="">
+          <input type="text" name="_gotcha" class="form__honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <p class="form__hint" id="formHint" hidden></p>
+
+          <div class="form__group">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" name="nome" required autocomplete="name" placeholder="Seu nome completo">
+          </div>
+          <div class="form__group">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" required autocomplete="email" placeholder="seu@email.com">
+          </div>
+          <div class="form__group">
+            <label for="empresa">Empresa</label>
+            <input type="text" id="empresa" name="empresa" autocomplete="organization" placeholder="Nome da empresa (opcional)">
+          </div>
+          <div class="form__group">
+            <label for="mensagem">Mensagem</label>
+            <textarea id="mensagem" name="mensagem" rows="5" required placeholder="Conte-nos sobre seu projeto..."></textarea>
+          </div>
+          <p class="form__feedback" id="formFeedback" role="status" aria-live="polite"></p>
+          <button type="submit" class="btn btn--primary btn--full" id="formSubmit">Enviar mensagem</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Fundador -->
+    <section class="section" id="fundador">
+      <div class="container fundador__inner">
+        <div class="fundador__media reveal">
+          <div class="fundador__photo-wrap">
+            <img
+              class="fundador__photo"
+              src="./static/imgs/foto-perfil.jpeg"
+              alt="Leonardo Longaray dos Santos, fundador da Aray Soluções"
+              width="400"
+              height="500"
+              loading="lazy"
+              decoding="async"
+            >
+          </div>
+        </div>
+        <div class="fundador__content reveal reveal--delay">
+          <span class="fundador__badge">Fundador</span>
+          <h2 class="section__title">Quem está por trás da Aray</h2>
+          <p class="fundador__role">Fundador e responsável técnico</p>
+          <h3 class="fundador__name">Leonardo Longaray dos Santos</h3>
+          <div class="fundador__text section__text">
+            <p>A Aray Soluções é conduzida por Leonardo Longaray dos Santos, profissional apaixonado por tecnologia e pela transformação de processos empresariais em software de alto impacto.</p>
+            <p>Com foco em desenvolvimento de sistemas, automações e integrações, Leonardo lidera cada projeto com proximidade, clareza e compromisso com resultados reais — da análise à entrega.</p>
+            <p>Sua visão é construir soluções modernas, escaláveis e alinhadas às necessidades de cada cliente, fortalecendo a credibilidade da Aray no mercado com excelência técnica e atendimento personalizado.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <img src="./static/imgs/logo-marca_fundo-transparente.png" alt="Aray Soluções" width="140" height="42" loading="lazy" decoding="async">
+        <p class="footer__tagline">Desenvolvimento de Sistemas, Automação e Soluções Digitais.</p>
+      </div>
+      <p class="footer__copy">© 2026 Aray Soluções. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="./js/main.js" defer></script>
+</body>
+</html>
