@@ -42,6 +42,8 @@ O formulário usa `mailto:aray.solucoes@gmail.com` com `enctype="text/plain"`. A
 
 Funciona em GitHub Pages, servidor local e ao abrir o HTML direto no navegador (desde que exista um app de e-mail configurado).
 
+Se ainda aparecer erro antigo do FormSubmit, force atualização: **Ctrl+Shift+R** (ou limpe o cache do navegador). O `main.js` usa versão `?v=3` para evitar cache.
+
 ## Alterar WhatsApp ou e-mail
 
 - **WhatsApp:** edite os links em `index.html` ou a constante `CONFIG.whatsapp` em `js/main.js`.
