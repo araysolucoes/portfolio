@@ -442,29 +442,34 @@
           </ul>
         </div>
 
-        <form class="form reveal reveal--delay" id="contactForm" action="https://formsubmit.co/aray.solucoes@gmail.com" method="POST" novalidate>
-          <input type="hidden" name="_subject" id="formSubject" value="Novo contato — Site Aray Soluções">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_next" id="formNext" value="">
-          <input type="text" name="_gotcha" class="form__honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
-          <p class="form__hint" id="formHint" hidden></p>
+        <form
+          class="form reveal reveal--delay"
+          id="contactForm"
+          action="mailto:aray.solucoes@gmail.com?subject=Novo%20contato%20%E2%80%94%20Site%20Aray%20Solu%C3%A7%C3%B5es"
+          method="POST"
+          enctype="text/plain"
+          name="ContatoAray"
+          novalidate
+        >
+          <p class="form__hint form__hint--info">
+            Ao clicar em enviar, seu programa de e-mail (Gmail, Outlook, etc.) será aberto com a mensagem preenchida. Confirme o envio na janela que abrir.
+          </p>
 
           <div class="form__group">
             <label for="nome">Nome</label>
-            <input type="text" id="nome" name="nome" required autocomplete="name" placeholder="Seu nome completo">
+            <input type="text" id="nome" name="Nome" required autocomplete="name" placeholder="Seu nome completo">
           </div>
           <div class="form__group">
             <label for="email">E-mail</label>
-            <input type="email" id="email" name="email" required autocomplete="email" placeholder="seu@email.com">
+            <input type="email" id="email" name="E-mail" required autocomplete="email" placeholder="seu@email.com">
           </div>
           <div class="form__group">
             <label for="empresa">Empresa</label>
-            <input type="text" id="empresa" name="empresa" autocomplete="organization" placeholder="Nome da empresa (opcional)">
+            <input type="text" id="empresa" name="Empresa" autocomplete="organization" placeholder="Nome da empresa (opcional)">
           </div>
           <div class="form__group">
             <label for="mensagem">Mensagem</label>
-            <textarea id="mensagem" name="mensagem" rows="5" required placeholder="Conte-nos sobre seu projeto..."></textarea>
+            <textarea id="mensagem" name="Mensagem" rows="5" required placeholder="Conte-nos sobre seu projeto..."></textarea>
           </div>
           <p class="form__feedback" id="formFeedback" role="status" aria-live="polite"></p>
           <button type="submit" class="btn btn--primary btn--full" id="formSubmit">Enviar mensagem</button>

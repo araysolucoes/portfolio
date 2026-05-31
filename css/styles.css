@@ -1109,6 +1109,10 @@ textarea {
   line-height: 1.5;
 }
 
+.form__hint--info {
+  display: block;
+}
+
 .form__hint a {
   color: var(--accent-light);
   text-decoration: underline;

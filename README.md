@@ -36,32 +36,16 @@ Após o deploy, edite `index.html` e adicione (se desejar) em `<head>`:
 
 Substitua `og:image` e `twitter:image` pela URL absoluta da imagem se o compartilhamento social não exibir o logo corretamente.
 
-## Formulário de contato (FormSubmit)
+## Formulário de contato (mailto)
 
-O formulário envia para **aray.solucoes@gmail.com** via [FormSubmit.co](https://formsubmit.co), usando envio AJAX (o visitante permanece no site).
+O formulário usa `mailto:aray.solucoes@gmail.com` com `enctype="text/plain"`. Ao enviar, o **programa de e-mail do visitante** abre (Gmail, Outlook, app do celular, etc.) com os dados preenchidos. O cliente precisa clicar em **Enviar** na janela de e-mail para a mensagem chegar na caixa da Aray.
 
-### Importante: não abrir como arquivo local
-
-Se você abrir `index.html` com duplo clique (`file:///...`), o FormSubmit **não funciona** e aparece erro na tela do FormSubmit. Isso é limitação do serviço, não do código.
-
-**Como testar corretamente:**
-
-1. **Produção:** publique no GitHub Pages e acesse pela URL `https://...`
-2. **Local:** na pasta do projeto, execute `npx serve .` e abra `http://localhost:3000` (ou a porta exibida)
-
-### Ativação do e-mail (obrigatória na primeira vez)
-
-1. Com o site em **https** (GitHub Pages ou `npx serve`), envie um formulário de teste.
-2. Abra o e-mail de confirmação em `aray.solucoes@gmail.com` (assunto da FormSubmit).
-3. Clique no link de ativação.
-4. Novos envios passam a chegar na caixa de entrada (verifique também spam).
-
-Se o envio falhar após publicar, o formulário oferece link **mailto:** como alternativa.
+Funciona em GitHub Pages, servidor local e ao abrir o HTML direto no navegador (desde que exista um app de e-mail configurado).
 
 ## Alterar WhatsApp ou e-mail
 
 - **WhatsApp:** edite os links em `index.html` ou a constante `CONFIG.whatsapp` em `js/main.js`.
-- **E-mail do formulário:** altere `action` do `<form>` em `index.html` e o destino no painel FormSubmit, se necessário.
+- **E-mail do formulário:** altere o `action="mailto:..."` do `<form>` em `index.html`.
 
 Número atual: `+55 51 9 9484-1638` → `https://wa.me/5551994841638`
 

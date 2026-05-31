@@ -1,18 +1,15 @@
 /**
  * Aray Soluções — Landing Page
- * Navegação, partículas, reveal e formulário
+ * Navegação, partículas, reveal e formulário (mailto)
  */
 
 (function () {
   "use strict";
 
-  // Configurações centralizadas para fácil manutenção
   var CONFIG = {
     whatsapp: "5551994841638",
     whatsappMsg:
       "Olá! Vim pelo site da Aray Soluções e gostaria de conversar sobre um projeto.",
-    formEmail: "aray.solucoes@gmail.com",
-    formAjaxUrl: "https://formsubmit.co/ajax/aray.solucoes@gmail.com",
     particleCount: 35,
     scrollThreshold: 40,
   };
@@ -24,13 +21,6 @@
   var contactForm = document.getElementById("contactForm");
   var formFeedback = document.getElementById("formFeedback");
   var formSubmitBtn = document.getElementById("formSubmit");
-  var formNext = document.getElementById("formNext");
-  var formHint = document.getElementById("formHint");
-
-  var isFileProtocol = window.location.protocol === "file:";
-  var isHttpProtocol =
-    window.location.protocol === "http:" ||
-    window.location.protocol === "https:";
 
   var prefersReducedMotion = window.matchMedia(
     "(prefers-reduced-motion: reduce)"
@@ -176,8 +166,6 @@
       }, 150);
     });
 
-    prefersReducedMotion =
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (prefersReducedMotion && particlesAnimId) {
       cancelAnimationFrame(particlesAnimId);
     }
@@ -185,7 +173,7 @@
 
   initParticles();
 
-  /* ---------- Validação do formulário ---------- */
+  /* ---------- Formulário mailto ---------- */
   function showFeedback(message, type) {
     if (!formFeedback) return;
     formFeedback.textContent = message;
@@ -208,18 +196,17 @@
     var nome = contactForm.querySelector("#nome");
     var email = contactForm.querySelector("#email");
     var mensagem = contactForm.querySelector("#mensagem");
-    var honeypot = contactForm.querySelector('[name="_gotcha"]');
-
-    if (honeypot && honeypot.value) {
-      return false;
-    }
 
     if (!nome || !nome.value.trim()) {
       if (nome) nome.classList.add("is-invalid");
       valid = false;
     }
 
-    if (!email || !email.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+    if (
+      !email ||
+      !email.value.trim() ||
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)
+    ) {
       if (email) email.classList.add("is-invalid");
       valid = false;
     }
@@ -236,184 +223,29 @@
     return valid;
   }
 
-  function getReturnUrl() {
-    var base = window.location.origin + window.location.pathname;
-    return base + "#contato?enviado=1";
-  }
-
-  function setFormNextUrl() {
-    if (formNext && isHttpProtocol) {
-      formNext.value = getReturnUrl();
-    }
-  }
-
-  function showFormHint(message) {
-    if (!formHint) return;
-    formHint.hidden = false;
-    formHint.textContent = message;
-  }
-
-  function hideFormHint() {
-    if (formHint) {
-      formHint.hidden = true;
-      formHint.textContent = "";
-    }
-  }
-
-  function resetSubmitButton() {
-    if (formSubmitBtn) {
-      formSubmitBtn.classList.remove("is-loading");
-      formSubmitBtn.textContent = "Enviar mensagem";
-    }
-  }
-
-  function buildMailtoFallback() {
-    if (!contactForm) return "";
-    var nome = contactForm.querySelector("#nome");
-    var email = contactForm.querySelector("#email");
-    var empresa = contactForm.querySelector("#empresa");
-    var mensagem = contactForm.querySelector("#mensagem");
-    var body =
-      "Nome: " +
-      (nome && nome.value ? nome.value.trim() : "") +
-      "\nE-mail: " +
-      (email && email.value ? email.value.trim() : "") +
-      "\nEmpresa: " +
-      (empresa && empresa.value ? empresa.value.trim() : "-") +
-      "\n\nMensagem:\n" +
-      (mensagem && mensagem.value ? mensagem.value.trim() : "");
-    return (
-      "mailto:" +
-      CONFIG.formEmail +
-      "?subject=" +
-      encodeURIComponent("Contato pelo site — Aray Soluções") +
-      "&body=" +
-      encodeURIComponent(body)
-    );
-  }
-
-  function checkFormSentFromUrl() {
-    if (window.location.hash.indexOf("enviado=1") === -1) return;
-    showFeedback(
-      "Mensagem enviada com sucesso! Retornaremos em breve pelo e-mail informado.",
-      "success"
-    );
-    if (contactForm) contactForm.reset();
-    history.replaceState(
-      null,
-      "",
-      window.location.pathname + window.location.search + "#contato"
-    );
-  }
-
-  setFormNextUrl();
-  checkFormSentFromUrl();
-
-  if (isFileProtocol) {
-    showFormHint(
-      "Para testar o envio automático, publique no GitHub Pages ou execute «npx serve .» na pasta do projeto. Abrindo o arquivo HTML direto no navegador não permite o envio."
-    );
-  }
-
   if (contactForm) {
     contactForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-
       if (!validateForm()) {
-        return;
-      }
-
-      if (isFileProtocol) {
-        showFeedback(
-          "O envio automático não funciona ao abrir o site como arquivo local. Publique no GitHub Pages ou use o botão abaixo para enviar por e-mail.",
-          "error"
-        );
-        var mailtoLink = buildMailtoFallback();
-        if (formHint) {
-          formHint.hidden = false;
-          formHint.innerHTML =
-            'Alternativa: <a href="' +
-            mailtoLink +
-            '">abrir seu programa de e-mail</a> com a mensagem preenchida.';
-        }
-        return;
-      }
-
-      if (!isHttpProtocol) {
-        showFeedback(
-          "Não foi possível enviar. Acesse o site pela URL publicada (https://).",
-          "error"
-        );
+        e.preventDefault();
         return;
       }
 
       if (formSubmitBtn) {
         formSubmitBtn.classList.add("is-loading");
-        formSubmitBtn.disabled = true;
-        formSubmitBtn.textContent = "Enviando...";
+        formSubmitBtn.textContent = "Abrindo e-mail...";
       }
 
-      hideFormHint();
-      showFeedback("Enviando sua mensagem...", "");
+      showFeedback(
+        "Abrindo seu programa de e-mail… Clique em «Enviar» na mensagem para concluir o contato.",
+        "success"
+      );
 
-      var nomeEl = contactForm.querySelector("#nome");
-      var emailEl = contactForm.querySelector("#email");
-      var empresaEl = contactForm.querySelector("#empresa");
-      var mensagemEl = contactForm.querySelector("#mensagem");
-
-      var payload = {
-        nome: nomeEl ? nomeEl.value.trim() : "",
-        email: emailEl ? emailEl.value.trim() : "",
-        empresa: empresaEl ? empresaEl.value.trim() : "",
-        mensagem: mensagemEl ? mensagemEl.value.trim() : "",
-        _subject: "Novo contato — Site Aray Soluções",
-        _captcha: "false",
-        _template: "table",
-        _next: getReturnUrl(),
-      };
-
-      fetch(CONFIG.formAjaxUrl, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify(payload),
-      })
-        .then(function (response) {
-          if (!response.ok) {
-            throw new Error("Resposta inválida do servidor");
-          }
-          return response.json();
-        })
-        .then(function (data) {
-          if (data && data.success !== true && data.success !== "true") {
-            throw new Error(data.message || "Falha no envio");
-          }
-          contactForm.reset();
-          showFeedback(
-            "Mensagem enviada com sucesso! Em breve entraremos em contato no e-mail informado.",
-            "success"
-          );
-        })
-        .catch(function () {
-          showFeedback(
-            "Não foi possível enviar agora. Tente novamente ou fale pelo WhatsApp / e-mail.",
-            "error"
-          );
-          var fallback = buildMailtoFallback();
-          if (formHint) {
-            formHint.hidden = false;
-            formHint.innerHTML =
-              'Alternativa: <a href="' +
-              fallback +
-              '">enviar por e-mail</a>.';
-          }
-        })
-        .finally(function () {
-          resetSubmitButton();
-          if (formSubmitBtn) formSubmitBtn.disabled = false;
-        });
+      setTimeout(function () {
+        if (formSubmitBtn) {
+          formSubmitBtn.classList.remove("is-loading");
+          formSubmitBtn.textContent = "Enviar mensagem";
+        }
+      }, 2500);
     });
   }
 
