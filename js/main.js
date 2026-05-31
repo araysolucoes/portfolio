@@ -1,6 +1,6 @@
 /**
  * Aray Soluções — Landing Page
- * Navegação, partículas, reveal e formulário (mailto)
+ * Navegação, partículas e reveal
  */
 
 (function () {
@@ -10,7 +10,6 @@
     whatsapp: "5551994841638",
     whatsappMsg:
       "Olá! Vim pelo site da Aray Soluções e gostaria de conversar sobre um projeto.",
-    contactEmail: "aray.solucoes@gmail.com",
     particleCount: 35,
     scrollThreshold: 40,
   };
@@ -19,10 +18,6 @@
   var navToggle = document.getElementById("navToggle");
   var navMenu = document.getElementById("navMenu");
   var heroCanvas = document.getElementById("heroParticles");
-  var contactForm = document.getElementById("contactForm");
-  var formFeedback = document.getElementById("formFeedback");
-  var formSubmitBtn = document.getElementById("formSubmit");
-
   var prefersReducedMotion = window.matchMedia(
     "(prefers-reduced-motion: reduce)"
   ).matches;
@@ -173,129 +168,6 @@
   }
 
   initParticles();
-
-  /* ---------- Formulário mailto ---------- */
-  function showFeedback(message, type) {
-    if (!formFeedback) return;
-    formFeedback.textContent = message;
-    formFeedback.className = "form__feedback";
-    if (type) formFeedback.classList.add("is-" + type);
-  }
-
-  function clearInvalid() {
-    if (!contactForm) return;
-    contactForm.querySelectorAll(".is-invalid").forEach(function (el) {
-      el.classList.remove("is-invalid");
-    });
-  }
-
-  function validateForm() {
-    if (!contactForm) return false;
-    clearInvalid();
-    var valid = true;
-
-    var nome = contactForm.querySelector("#nome");
-    var email = contactForm.querySelector("#email");
-    var mensagem = contactForm.querySelector("#mensagem");
-
-    if (!nome || !nome.value.trim()) {
-      if (nome) nome.classList.add("is-invalid");
-      valid = false;
-    }
-
-    if (
-      !email ||
-      !email.value.trim() ||
-      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)
-    ) {
-      if (email) email.classList.add("is-invalid");
-      valid = false;
-    }
-
-    if (!mensagem || !mensagem.value.trim()) {
-      if (mensagem) mensagem.classList.add("is-invalid");
-      valid = false;
-    }
-
-    if (!valid) {
-      showFeedback("Preencha os campos obrigatórios corretamente.", "error");
-    }
-
-    return valid;
-  }
-
-  function buildMailtoUrl() {
-    var nome = contactForm.querySelector("#nome");
-    var email = contactForm.querySelector("#email");
-    var empresa = contactForm.querySelector("#empresa");
-    var mensagem = contactForm.querySelector("#mensagem");
-
-    var corpo =
-      "Nome: " +
-      (nome && nome.value ? nome.value.trim() : "") +
-      "\r\nE-mail: " +
-      (email && email.value ? email.value.trim() : "") +
-      "\r\nEmpresa: " +
-      (empresa && empresa.value ? empresa.value.trim() : "-") +
-      "\r\n\r\nMensagem:\r\n" +
-      (mensagem && mensagem.value ? mensagem.value.trim() : "");
-
-    return (
-      "mailto:" +
-      CONFIG.contactEmail +
-      "?subject=" +
-      encodeURIComponent("Novo contato — Site Aray Soluções") +
-      "&body=" +
-      encodeURIComponent(corpo)
-    );
-  }
-
-  if (contactForm) {
-    if (formFeedback) {
-      formFeedback.textContent = "";
-      formFeedback.className = "form__feedback";
-    }
-
-    contactForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-      console.info("[Aray] Envio do formulário iniciado");
-
-      if (!validateForm()) {
-        console.warn("[Aray] Validação falhou");
-        return;
-      }
-
-      var mailtoUrl = buildMailtoUrl();
-      console.info("[Aray] Abrindo mailto:", mailtoUrl);
-
-      if (formSubmitBtn) {
-        formSubmitBtn.classList.add("is-loading");
-        formSubmitBtn.textContent = "Abrindo e-mail...";
-      }
-
-      try {
-        window.location.href = mailtoUrl;
-        showFeedback(
-          "Se o e-mail não abrir, verifique se há Gmail/Outlook configurado no dispositivo, ou use o WhatsApp acima.",
-          "success"
-        );
-        console.info("[Aray] mailto disparado com sucesso");
-      } catch (err) {
-        console.error("[Aray] Erro ao abrir mailto:", err);
-        showFeedback(
-          "Não foi possível abrir o e-mail neste dispositivo. Use o WhatsApp ou envie para aray.solucoes@gmail.com.",
-          "error"
-        );
-      }
-
-      setTimeout(function () {
-        if (formSubmitBtn) {
-          formSubmitBtn.classList.remove("is-loading");
-          formSubmitBtn.textContent = "Enviar mensagem";
-        }
-      }, 2000);
-    });
-  }
 
   /* ---------- Links WhatsApp dinâmicos (fallback) ---------- */
   document.querySelectorAll(".btn--whatsapp").forEach(function (btn) {

@@ -36,18 +36,18 @@ Após o deploy, edite `index.html` e adicione (se desejar) em `<head>`:
 
 Substitua `og:image` e `twitter:image` pela URL absoluta da imagem se o compartilhamento social não exibir o logo corretamente.
 
-## Formulário de contato (mailto)
+## Contato
 
-O formulário usa `mailto:aray.solucoes@gmail.com` com `enctype="text/plain"`. Ao enviar, o **programa de e-mail do visitante** abre (Gmail, Outlook, app do celular, etc.) com os dados preenchidos. O cliente precisa clicar em **Enviar** na janela de e-mail para a mensagem chegar na caixa da Aray.
+A seção **Entre em contato** exibe apenas links diretos:
 
-Funciona em GitHub Pages, servidor local e ao abrir o HTML direto no navegador (desde que exista um app de e-mail configurado).
-
-Se ainda aparecer erro antigo do FormSubmit, force atualização: **Ctrl+Shift+R** (ou limpe o cache do navegador). O `main.js` usa versão `?v=3` para evitar cache.
+- **WhatsApp:** +55 51 9 9484-1638
+- **E-mail:** aray.solucoes@gmail.com
+- **Instagram:** [@aray_solucoes](https://www.instagram.com/aray_solucoes/)
 
 ## Alterar WhatsApp ou e-mail
 
 - **WhatsApp:** edite os links em `index.html` ou a constante `CONFIG.whatsapp` em `js/main.js`.
-- **E-mail do formulário:** altere o `action="mailto:..."` do `<form>` em `index.html`.
+- **E-mail / Instagram:** edite os links na seção `#contato` em `index.html`.
 
 Número atual: `+55 51 9 9484-1638` → `https://wa.me/5551994841638`
 
