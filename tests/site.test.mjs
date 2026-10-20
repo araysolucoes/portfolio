@@ -34,4 +34,17 @@ assert.equal(new Set(waNumbers).size, 1, 'Os CTAs usam números WhatsApp distint
 assert.match(html, /mailto:aray\.solucoes@gmail\.com/);
 assert.match(html, /Demonstração/);
 
+
+const jsonLdBlocks = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)];
+assert.ok(jsonLdBlocks.length >= 2, 'Dados estruturados ausentes');
+for (const block of jsonLdBlocks) {
+  const parsed = JSON.parse(block[1]);
+  assert.equal(parsed['@context'], 'https://schema.org');
+}
+const canonical = html.match(/<link rel="canonical" href="([^"]+)"/)?.[1];
+const ogUrl = html.match(/<meta property="og:url" content="([^"]+)"/)?.[1];
+assert.equal(canonical, ogUrl, 'Canonical difere do Open Graph URL');
+const org = jsonLdBlocks.map(b => JSON.parse(b[1])).find(v => v['@type'] === 'Organization');
+assert.equal(org?.url, canonical, 'Organization.url difere da URL canônica');
+
 console.log('Validações estáticas: OK. Atenção: não substituem testes de navegador, acessibilidade ou URLs.');
