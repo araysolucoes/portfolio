@@ -35,7 +35,7 @@ assert.match(html, /mailto:aray\.solucoes@gmail\.com/);
 assert.match(html, /Demonstração/);
 
 
-const jsonLdBlocks = [...html.matchAll(/<script type="application\\/ld\\+json">([\\s\\S]*?)<\\/script>/g)];
+const jsonLdBlocks = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)];
 assert.ok(jsonLdBlocks.length >= 2, 'Dados estruturados ausentes');
 for (const block of jsonLdBlocks) {
   const parsed = JSON.parse(block[1]);
