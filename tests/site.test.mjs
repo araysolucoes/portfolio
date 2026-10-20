@@ -22,4 +22,16 @@ assert.match(js, /aria-expanded/);
 assert.match(js, /visibilitychange/);
 assert.match(js, /cancelAnimationFrame/);
 assert.equal(cname, 'araysolucoes.com.br');
+
+const ids = new Set([...html.matchAll(/\\bid="([^"]+)"/g)].map(m => m[1]));
+const anchors = [...html.matchAll(/href="#([^"]+)"/g)].map(m => m[1]);
+for (const anchor of anchors) {
+  assert.ok(ids.has(anchor), 'Âncora sem destino: #' + anchor);
+}
+const waNumbers = [...html.matchAll(/wa\\.me\\/(\\d+)/g)].map(m => m[1]);
+assert.ok(waNumbers.length > 0, 'Nenhum contato WhatsApp encontrado');
+assert.equal(new Set(waNumbers).size, 1, 'Os CTAs usam números WhatsApp distintos');
+assert.match(html, /mailto:aray\\.solucoes@gmail\\.com/);
+assert.match(html, /Demonstração/);
+
 console.log('Validações estáticas: OK. Atenção: não substituem testes de navegador, acessibilidade ou URLs.');
