@@ -1,0 +1,25 @@
+name: Validate static site
+
+on:
+  push:
+    branches: [dev, hml, main]
+  pull_request:
+    branches: [dev, hml, main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate HTML and project structure
+        run: node tests/site.test.mjs
+      - name: Check JavaScript syntax
+        run: node --check js/main.js
+      - name: Check CNAME
+        run: test "$(cat CNAME)" = "araysolucoes.com.br"

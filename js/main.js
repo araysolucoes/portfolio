@@ -102,6 +102,7 @@
     if (!heroCanvas || prefersReducedMotion) return;
 
     var ctx = heroCanvas.getContext("2d");
+    if (!ctx) return;
     var particles = [];
     var w = 0;
     var h = 0;
@@ -130,7 +131,10 @@
     }
 
     function draw() {
-      if (!ctx || !w || !h) return;
+      if (document.hidden || !w || !h) {
+        particlesAnimId = null;
+        return;
+      }
       ctx.clearRect(0, 0, w, h);
 
       particles.forEach(function (p) {
@@ -153,6 +157,15 @@
     createParticles();
     draw();
 
+    document.addEventListener("visibilitychange", function () {
+      if (document.hidden && particlesAnimId !== null) {
+        cancelAnimationFrame(particlesAnimId);
+        particlesAnimId = null;
+      } else if (!document.hidden && particlesAnimId === null) {
+        draw();
+      }
+    });
+
     var resizeTimer;
     window.addEventListener("resize", function () {
       clearTimeout(resizeTimer);
@@ -162,9 +175,6 @@
       }, 150);
     });
 
-    if (prefersReducedMotion && particlesAnimId) {
-      cancelAnimationFrame(particlesAnimId);
-    }
   }
 
   initParticles();
