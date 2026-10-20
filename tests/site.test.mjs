@@ -19,5 +19,7 @@ for (const section of ['hero','sobre','servicos','tecnologias','diferenciais','p
 assert.match(css, /:focus-visible/);
 assert.match(css, /prefers-reduced-motion/);
 assert.match(js, /aria-expanded/);
+assert.match(js, /visibilitychange/);
+assert.match(js, /cancelAnimationFrame/);
 assert.equal(cname, 'araysolucoes.com.br');
 console.log('Validações estáticas: OK. Atenção: não substituem testes de navegador, acessibilidade ou URLs.');
