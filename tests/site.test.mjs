@@ -32,7 +32,10 @@ const waNumbers = [...html.matchAll(/wa\.me\/(\d+)/g)].map(m => m[1]);
 assert.ok(waNumbers.length > 0, 'Nenhum contato WhatsApp encontrado');
 assert.equal(new Set(waNumbers).size, 1, 'Os CTAs usam números WhatsApp distintos');
 assert.match(html, /mailto:aray\.solucoes@gmail\.com/);
-assert.match(html, /Demonstração/);
+for (const project of ['Vitro', 'RetailFlow', 'Priora', 'MultAgent', 'ArayFlow', 'DashInfojobs-Tech']) {
+  assert.ok(html.includes('https://github.com/llongaray/' + project), 'Link do projeto ausente: ' + project);
+}
+assert.match(html, /Projeto real/);
 
 
 const jsonLdBlocks = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)];
