@@ -47,4 +47,8 @@ assert.equal(canonical, ogUrl, 'Canonical difere do Open Graph URL');
 const org = jsonLdBlocks.map(b => JSON.parse(b[1])).find(v => v['@type'] === 'Organization');
 assert.equal(org?.url, canonical, 'Organization.url difere da URL canônica');
 
+assert.match(html, /class="skip-link" href="#main"/);
+assert.match(html, /<main id="main" tabindex="-1">/);
+assert.match(html, /aria-controls="navMenu"/);
+assert.match(html, /aria-label="Navegação principal"/);
 console.log('Validações estáticas: OK. Atenção: não substituem testes de navegador, acessibilidade ou URLs.');
