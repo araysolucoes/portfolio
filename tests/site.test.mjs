@@ -49,6 +49,7 @@ const ogUrl = html.match(/<meta property="og:url" content="([^"]+)"/)?.[1];
 assert.equal(canonical, ogUrl, 'Canonical difere do Open Graph URL');
 const org = jsonLdBlocks.map(b => JSON.parse(b[1])).find(v => v['@type'] === 'Organization');
 assert.equal(org?.url, canonical, 'Organization.url difere da URL canônica');
+assert.equal(new URL(canonical).hostname, cname, 'Host canônico difere de CNAME');
 
 assert.match(html, /class="skip-link" href="#main"/);
 assert.match(html, /<main id="main" tabindex="-1">/);
