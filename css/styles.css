@@ -1215,3 +1215,9 @@ textarea {
 }
 
 /* Sem JavaScript, o conteúdo permanece visível; o JS controla apenas efeitos opcionais. */
+
+/* Cartões de projetos reais */
+.project-card__body { display: flex; flex-direction: column; gap: .65rem; height: 100%; }
+.project-card__link { display: inline-block; margin-top: auto; padding-top: .75rem; color: var(--accent-light); font-weight: 600; text-underline-offset: 3px; }
+.project-card__link:hover { text-decoration: underline; }
+.project-card__link:focus-visible { outline: 3px solid #facc15; outline-offset: 3px; border-radius: 3px; }
